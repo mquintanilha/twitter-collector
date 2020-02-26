@@ -20,7 +20,7 @@ func main() {
 	}
 	
 	req.Header.Add("Content-Type", "application/json")
-	req.Header.Add("Authorization", "Bearer AAAAAAAAAAAAAAAAAAAAAEjDCgEAAAAAVtCArfmG%2FHYi752sKmUHFaaqZUc%3DyTr3Mn58g28egkjS7jwJHY8h5fOXYK5K4KcMDt1BN7R6M5tlbs")
+	req.Header.Add("Authorization", "Bearer OMITIDO")
 
 	res, err := client.Do(req)
 	defer res.Body.Close()
