@@ -7,7 +7,9 @@ import (
 	"strings"
 )
 
-func main() {
+var data_feed interface{}
+
+func collector() {
 
 	url := "https://api.twitter.com/1.1/tweets/search/30day/dev.json?result_type=mixed"
 	method := "POST"
@@ -18,13 +20,22 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 	}
-	
+
 	req.Header.Add("Content-Type", "application/json")
-	req.Header.Add("Authorization", "Bearer OMITIDO")
+	req.Header.Add("Authorization", "Bearer <TWITTER-TOKEN>")
 
 	res, err := client.Do(req)
 	defer res.Body.Close()
 	body, err := ioutil.ReadAll(res.Body)
 
+
 	fmt.Println(string(body))
+
+}
+
+
+func main() {
+
+	collector()
+
 }
