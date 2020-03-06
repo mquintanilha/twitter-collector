@@ -8,10 +8,32 @@ import (
     "go.mongodb.org/mongo-driver/mongo/options"
 )
 
-type Person struct {
-    Name string
-    Age  int
-    City string
+type Post struct {
+    ID              bson.ObjectId   `bson:"_id" json:"id"`
+    Time_stamp      string  `bson:"name" json:"name"`
+    User            User
+    Place           Place
+    Entities        Entities
+    Language        string  `bson:"lang" json:"lang"`
+}
+
+type User struct {
+    Id              int     `bson:"id" json:"id"`
+    Name            string  `bson:"name" json:"name"`
+    Followers_count int     `bson:"followers_count" json:"followers_count"`
+}
+
+type Place struct  {
+    Name    string  `bson:"name" json:"name"`
+    Country_code    string  `bson:"country_code", json:"country_code"`
+}
+
+type Entities struct {
+    Hashtags    Hashtags
+}
+
+type Hashtags struct {
+    Text    string  `bson:"text" json:"text"`
 }
 
 func main() {
